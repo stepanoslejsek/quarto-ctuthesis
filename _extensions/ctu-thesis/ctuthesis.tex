@@ -1,0 +1,116 @@
+\documentclass[twoside]{ctuthesis}
+
+\ctusetup{
+  % preprint = \ctuverlog,
+%	mainlanguage = english,
+%	titlelanguage = czech,
+	mainlanguage = czech,
+	otherlanguages = {slovak,english},
+	title-czech = {Moje bakalářka se strašně, ale hrozně dlouhým předlouhým názvem},
+	title-english = {My Favourite Thesis; Just the Title is Soooooooo Looooong},
+	subtitle-czech = {Cesta do tajů kdovíčeho},
+	subtitle-english = {Journey to the who-knows-what wondeland},
+	doctype = B,
+	faculty = F4,
+	department-czech = {Katedra matematiky},
+	department-english = {Department of Mathematics},
+	author = {Tomáš Hejda},
+	supervisor = {Prof. Krutoš Spravedlivý},
+	supervisor-address = {Ústav X, \\ Uliční 5, \\ Praha 99},
+	supervisor-specialist = {John Doe},
+	fieldofstudy-english = {Mathematical Engineering},
+	subfieldofstudy-english = {Mathematical Modelling},
+	fieldofstudy-czech = {Matematcké inženýrství},
+	subfieldofstudy-czech = {Matematické modelování},
+	keywords-czech = {slovo, klíč},
+	keywords-english = {word, key},
+	day = 10,
+	month = 2,
+	year = 2017,
+  % specification-file = {ctutest-zadani.pdf},
+%	front-specification = true,
+%	front-list-of-figures = false,
+%	front-list-of-tables = false,
+%	monochrome = true,
+%	layout-short = true,
+}
+
+\ctuprocess
+
+\addto\ctucaptionsczech{%
+	\def\supervisorname{Vedoucí}%
+	\def\subfieldofstudyname{Studijní program}%
+}
+
+\ctutemplateset{maketitle twocolumn default}{
+	\begin{twocolumnfrontmatterpage}
+		\ctutemplate{twocolumn.thanks}
+		\ctutemplate{twocolumn.declaration}
+		\ctutemplate{twocolumn.abstract.in.titlelanguage}
+		\ctutemplate{twocolumn.abstract.in.secondlanguage}
+		\ctutemplate{twocolumn.tableofcontents}
+		\ctutemplate{twocolumn.listoffigures}
+	\end{twocolumnfrontmatterpage}
+}
+
+% Theorem declarations, this is the reasonable default, anybody can do what they wish.
+% If you prefer theorems in italics rather than slanted, use \theoremstyle{plainit}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{note}
+\newtheorem*{remark*}{Remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\setlength{\parskip}{5ex plus 0.2ex minus 0.2ex}
+
+% Abstract in Czech
+\begin{abstract-czech}
+  sadhfasdf
+\end{abstract-czech}
+
+% Abstract in English
+\begin{abstract-english}
+dajfsdlfk
+\end{abstract-english}
+
+% Acknowledgements / Podekovani
+\begin{thanks}
+Děkuji ČVUT, že mi je tak dobrou \emph{alma mater}.
+\end{thanks}
+
+% Declaration / Prohlaseni
+\begin{declaration}
+Prohlašuji, že jsem předloženou práci vypracoval samostatně, a že jsem uvedl veškerou použitou literaturu.
+
+V Praze, \ctufield{day}.~\monthinlanguage{title}~\ctufield{year}
+\end{declaration}
+
+% Only for testing purposes
+\listfiles
+\usepackage[pagewise]{lineno}
+\usepackage{lipsum,blindtext}
+\usepackage{mathrsfs} % provides \mathscr used in the ridiculous examples
+
+\begin{document}
+
+\maketitle
+
+$body$
+
+\printindex
+
+\bibliographystyle{amsalpha}
+\bibliography{ctutest}
+
+% \ctutemplate{specification.as.chapter}
+
+\end{document}
