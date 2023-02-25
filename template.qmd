@@ -50,6 +50,7 @@ As you can see on [@fig-polar] this is polar plot WOW. As it is stated in [@cite
 
 Reference to basic table [@tbl-table]
 
+\appendix
 # Bibliography {.unnumbered .unlisted}
 
 ::: {#refs}
