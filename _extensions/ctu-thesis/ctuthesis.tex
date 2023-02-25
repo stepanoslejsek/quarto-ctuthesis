@@ -27,8 +27,8 @@
 	day = 10,
 	month = 2,
 	year = 2017,
-  % specification-file = {ctutest-zadani.pdf},
-%	front-specification = true,
+    specification-file = {ctutest-zadani.pdf},
+	front-specification = true,
 %	front-list-of-figures = false,
 %	front-list-of-tables = false,
 %	monochrome = true,
@@ -99,6 +99,43 @@ V Praze, \ctufield{day}.~\monthinlanguage{title}~\ctufield{year}
 \usepackage[pagewise]{lineno}
 \usepackage{lipsum,blindtext}
 \usepackage{mathrsfs} % provides \mathscr used in the ridiculous examples
+\usepackage{longtable}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(csl-refs)$
+% Pandoc citation processing
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+% for Pandoc 2.8 to 2.10.1
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+% For Pandoc 2.11+
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
 
 \begin{document}
 
@@ -106,11 +143,15 @@ V Praze, \ctufield{day}.~\monthinlanguage{title}~\ctufield{year}
 
 $body$
 
-\printindex
+% \medskip
 
-\bibliographystyle{amsalpha}
-\bibliography{ctutest}
+% \appendix
 
-% \ctutemplate{specification.as.chapter}
+% \printindex
+
+% \appendix
+
+% \bibliographystyle{amsalpha}
+% \bibliography{ctutest}
 
 \end{document}
